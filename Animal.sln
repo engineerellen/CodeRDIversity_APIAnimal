@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimalAPI", "AnimalAPI\AnimalAPI.csproj", "{D737D9DB-ABB0-4140-AC16-0858D2414E65}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAnimal", "ConsoleAnimal\ConsoleAnimal.csproj", "{D416BB68-BBC7-4BED-9602-BB4C31C81982}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{D737D9DB-ABB0-4140-AC16-0858D2414E65}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D737D9DB-ABB0-4140-AC16-0858D2414E65}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D737D9DB-ABB0-4140-AC16-0858D2414E65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D416BB68-BBC7-4BED-9602-BB4C31C81982}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D416BB68-BBC7-4BED-9602-BB4C31C81982}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D416BB68-BBC7-4BED-9602-BB4C31C81982}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D416BB68-BBC7-4BED-9602-BB4C31C81982}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
