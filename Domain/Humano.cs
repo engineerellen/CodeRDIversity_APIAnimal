@@ -3,12 +3,13 @@
     public class Humano : Mamifero
     {
         public string TempoVida { get; set; }
-        public Humano(int id,string nome, int idade, string tempoVida)
+        public Humano(int id, string nome, int idade, string tempoVida)
         {
 
             base.Nome = nome;
             base.Idade = idade;
             TempoVida = tempoVida;
+            ID = id;
         }
 
         public override string Acordar() => $"{Nome} {base.Acordar()}";

@@ -1,5 +1,6 @@
 ﻿using Domain;
 using Microsoft.AspNetCore.Mvc;
+using Services;
 
 namespace AnimalAPI.Controllers
 {
@@ -9,47 +10,52 @@ namespace AnimalAPI.Controllers
     {
         private Humano mulher = new Humano(1, "Mafalda", 65, "anos");
         private Humano bebeMenina = new Humano(2, "Valentina", 0, "meses");
-
         private List<Humano> humanoList;
-
+        private HumansServices service;
 
         public HumanController()
         {
             humanoList = new List<Humano>() { mulher, bebeMenina };
+            service = new HumansServices();
         }
 
-        // GET: api/<HumanController>
+
         [HttpGet]
         public List<Humano> Get() => humanoList;
 
+        [HttpGet("GetCyclopMorty")]
+        public async Task<string?> GetCyclopMorty() => await service.GetCyclopMorty();
 
-        // POST api/<HumanController>
+        [HttpGet("{id}")]
+        public Humano Get(int id) => humanoList.Where(p => p.ID == id).FirstOrDefault();
+
         [HttpPost]
         public void Post([FromBody] Humano value) => humanoList.Add(value);
 
-        // PUT api/<HumanController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public List<Humano> Put(int id, [FromBody] Humano value)
         {
-            var menina = humanoList.Where(p => p.ID == id).FirstOrDefault();
+            var humano = humanoList.Where(p => p.ID == id).FirstOrDefault();
 
-            if (menina == null)
+            if (humano == null)
             {
                 NotFound();
-                return;
+                return new List<Humano>();
             }
 
-            menina.Nome = value;
+            humano.Nome = value.Nome;
+            humano.Idade = value.Idade;
+
+            return humanoList;
         }
 
-        // DELETE api/<HumanController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            var menina = humanoList.Where(p => p.ID == id).FirstOrDefault();
+            var humano = humanoList.Where(p => p.ID == id).FirstOrDefault();
 
-            if (menina != null)
-                humanoList.Remove(menina);
+            if (humano != null)
+                humanoList.Remove(humano);
         }
     }
 }
